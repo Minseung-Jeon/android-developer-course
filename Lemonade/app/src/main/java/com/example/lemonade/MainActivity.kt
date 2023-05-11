@@ -1,3 +1,10 @@
+/*
+    @author Minseung Jeon
+    @written 2023-05-11
+    @unit unit2
+    @googledevelopercourseURL https://developer.android.com/codelabs/basic-android-kotlin-compose-button-click-practice-problem?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-2-pathway-2%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-button-click-practice-problem#0
+ */
+
 package com.example.lemonade
 
 import android.media.Image
@@ -5,6 +12,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -26,6 +34,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -98,11 +107,13 @@ fun LemonadeApp(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.Center
     ) {
         Button(
-            shape = RoundedCornerShape(30.dp),
-            onClick = { pageNum ++ }
-
+            modifier = Modifier.border(width=2.dp, color = Color(red=105, green=205, blue=216), shape= RoundedCornerShape(4.dp)),
+            onClick = { pageNum ++ },
+            shape= RoundedCornerShape(4.dp)
         ) {
-            Image(painter = painterResource(imageResource), contentDescription = stringResource(imageDescription))
+            Image(
+                painter = painterResource(imageResource),
+                contentDescription = stringResource(imageDescription))
             if (pageNum == 1) {
                 tap = (2..4).random()
             }
